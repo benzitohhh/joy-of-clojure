@@ -1,4 +1,4 @@
-(ns clojapp.a
+(ns clojapp.astar
   (:gen-class))
 
 ;; A* search implementation
@@ -68,6 +68,7 @@
                             (let [[y x] w]
                               [(total-cost newcost step-est size y x) w]))
                           nbr-yxs)))))))))
+
 
 ;; run it!
 (astar [0 0]
