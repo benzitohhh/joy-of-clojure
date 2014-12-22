@@ -1,8 +1,8 @@
-(ns joy.concurrency.hello-concurrency)
+(ns joy.concurrency.simple)
 
 (import '(java.util.concurrent Executors))
 
-(def *pool* (Executors/newFixedThreadPool
+(def ^:dynamic *pool* (Executors/newFixedThreadPool
              (+ 2 (.availableProcessors (Runtime/getRuntime)))))
 
 (defn dothreads! [f & {thread-count :threads
