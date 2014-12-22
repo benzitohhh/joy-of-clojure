@@ -1,3 +1,3 @@
-# Introduction to clojapp
+# Introduction to joy
 
 TODO: write [great documentation](http://jacobian.org/writing/great-documentation/what-to-write/)

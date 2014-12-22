@@ -1,4 +1,4 @@
-(ns clojapp.core
+(ns joy.core
   (:gen-class))
 
 (defmacro dbg[x] `(let [x# ~x] (println "dbg:" '~x "=" x#) x#))

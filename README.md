@@ -1,4 +1,4 @@
-# clojapp
+# joy
 
 FIXME: description
 
@@ -10,7 +10,7 @@ Download from http://example.com/FIXME.
 
 FIXME: explanation
 
-    $ java -jar clojapp-0.1.0-standalone.jar [args]
+    $ java -jar joy-0.1.0-standalone.jar [args]
 
 ## Options
 

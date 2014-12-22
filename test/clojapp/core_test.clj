@@ -1,6 +1,6 @@
-(ns clojapp.core-test
+(ns joy.core-test
   (:use clojure.test
-        clojapp.core))
+        joy.core))
 
 (deftest a-test
   (testing "FIXME, I fail."

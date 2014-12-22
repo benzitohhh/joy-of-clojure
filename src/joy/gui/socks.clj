@@ -1,6 +1,6 @@
-(ns clojapp.gui.socks
+(ns joy.gui.socks
   (:import
-   (clojapp.gui DynaFrame)
+   (joy.gui DynaFrame)
    (javax.swing Box BoxLayout JTextField JPanel
                 JSplitPane JLabel JButton
                 JOptionPane)
@@ -44,7 +44,7 @@
   ([frame msg]
      (javax.swing.JOptionPane/showMessageDialog frame msg)))
 
-(def gui (clojapp.gui.DynaFrame. "4th"))
+(def gui (joy.gui.DynaFrame. "4th"))
 
 (.display gui
   (splitter

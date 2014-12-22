@@ -1,8 +1,8 @@
-(defproject clojapp "0.1.0-SNAPSHOT"
+(defproject joy "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [com.sun.net.httpserver/http "20070405"]]
-  :main clojapp.core)
+  :main joy.core)

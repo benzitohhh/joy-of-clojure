@@ -1,6 +1,6 @@
-(ns clojapp.gui.DynaFrame
+(ns joy.gui.DynaFrame
   (:gen-class
-   :name         clojapp.gui.DynaFrame
+   :name         joy.gui.DynaFrame
    :extends      javax.swing.JFrame
    :implements   [clojure.lang.IMeta]
    :prefix       df-
@@ -32,20 +32,20 @@
     (.setVisible true)))
 
 ;; At the repl
-;; (compile 'clojapp.gui.DynaFrame)
+;; (compile 'joy.gui.DynaFrame)
 ;; At this point, you should see the generate class files on the classpath (i.e. in lein, see /target/)
 
 ;; Now you can do..
-;; (ns clojapp.gui.DynaFrame)
+;; (ns joy.gui.DynaFrame)
 
-;; (meta (clojapp.gui.DynaFrame. "3rd"))
-;; ->  {:clojapp.gui.DynaFrame/title "3rd"}
-;;(clojapp.gui.DynaFrame/version)
+;; (meta (joy.gui.DynaFrame. "3rd"))
+;; ->  {:joy.gui.DynaFrame/title "3rd"}
+;;(joy.gui.DynaFrame/version)
 ;; -> "1.0"
 
 ;; And to see the gui call:
 
-;; (def gui (clojapp.gui.DynaFrame. "4th"))
+;; (def gui (joy.gui.DynaFrame. "4th"))
 
 ;; (.display gui (doto (javax.swing.JPanel.)
 ;;                 (.add (javax.swing.JLabel. "Charlemagne and Pippin"))))

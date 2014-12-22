@@ -1,4 +1,4 @@
-(ns clojapp.webservice
+(ns joy.webservice
   (:import (com.sun.net.httpserver HttpHandler HttpExchange HttpServer)
            (java.net InetSocketAddress HttpURLConnection)
            (java.io IOException FilterOutputStream)

@@ -1,4 +1,4 @@
-(ns clojapp.concurrency.chess)
+(ns joy.concurrency.chess)
 
 (def initial-board
   [[:- :k :-]

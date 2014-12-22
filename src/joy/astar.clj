@@ -1,4 +1,4 @@
-(ns clojapp.astar
+(ns joy.astar
   (:gen-class))
 
 ;; A* search implementation

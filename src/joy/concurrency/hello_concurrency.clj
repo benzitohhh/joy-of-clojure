@@ -1,4 +1,4 @@
-(ns clojapp.concurrency.hello-concurrency)
+(ns joy.concurrency.hello-concurrency)
 
 (import '(java.util.concurrent Executors))
 
