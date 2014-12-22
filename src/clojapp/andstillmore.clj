@@ -184,3 +184,26 @@
 (xseq (fixo-pop (fixo-pop (fixo-pop (reduce fixo-push nil [3 5 2 4 6 0])))))
 
 ;; ok.... we're up to listing 9.4 (page 230)
+
+
+;; An alternative to defrecord, is to use reify... (an re-use existing structure underneath - in this case a vector)
+;; The below  implemenation has a size limit
+(defn fixed-fixo
+  ([limit] (fixed-fixo limit []))
+  ([limit vector]
+     (reify FIXO
+       (fixo-push [this value]
+         (if (< (count vector) limit)
+           (fixed-fixo limit (conj vector value))
+           this))
+       (fixo-peek [_]
+         (peek vector))
+       (fixo-pop [_]
+         (pop vector)))))
+
+(-> (fixed-fixo 2)
+    (fixo-push 1)
+    (fixo-push 2)
+    (fixo-push 3)
+    (fixo-peek))
+; -> 2
