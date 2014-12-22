@@ -184,7 +184,7 @@
 (defn pow [base exp]
   (if (zero? exp)
     1
-    (* base (f base (dec exp)))))
+    (* base (pow base (dec exp)))))
 
 ;; Power function with tail call recursion
 (defn pow [base exp]
