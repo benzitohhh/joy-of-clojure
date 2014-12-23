@@ -1,6 +1,5 @@
-(ns joy.concurrency.chess)
-
-(import 'java.util.concurrent.Executors)
+(ns joy.concurrency.chess
+  (:import (java.util.concurrent Executors ExecutorService)))
 
 (def ^:dynamic *pool* (Executors/newFixedThreadPool
                        (+ 2 (.availableProcessors (Runtime/getRuntime)))))
@@ -11,12 +10,11 @@
   (dotimes [t thread-count]
     (.submit *pool* #(dotimes [_ exec-count] (f)))))
 
-(alter-var-root #'*out* (constantly *out*))
+;(alter-var-root #'*out* (constantly *out*))
 
-(defn hello [name]
-  (println "Hello " name))
+(defn hello [] (println "Hello "))
 
-(dothreads! hello :threads 2 :times 4)
+;(dothreads! hello :threads 2 :times 4)
 
 (defn neighbors
   ([size yx] (neighbors [[-1 0] [1 0] [0 -1] [0 1]] size yx))
