@@ -10,11 +10,9 @@
   (dotimes [t thread-count]
     (.submit *pool* #(dotimes [_ exec-count] (f)))))
 
-;(alter-var-root #'*out* (constantly *out*))
+;;(dothreads! #(println "hello, thread here") :threads 2 :times 4) ;; prints to standard out
 
-(defn hello [] (println "Hello "))
-
-;(dothreads! hello :threads 2 :times 4)
+;(.shutdown *pool*)
 
 (defn neighbors
   ([size yx] (neighbors [[-1 0] [1 0] [0 -1] [0 1]] size yx))
