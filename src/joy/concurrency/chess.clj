@@ -1,18 +1,6 @@
 (ns joy.concurrency.chess
+  (:require [joy.concurrency.common :refer :all])
   (:import (java.util.concurrent Executors ExecutorService)))
-
-(def ^:dynamic *pool* (Executors/newFixedThreadPool
-                       (+ 2 (.availableProcessors (Runtime/getRuntime)))))
-
-(defn dothreads! [f & {thread-count :threads
-                       exec-count :times
-                       :or {thread-count 1 exec-count 1}}]
-  (dotimes [t thread-count]
-    (.submit *pool* #(dotimes [_ exec-count] (f)))))
-
-;;(dothreads! #(println "hello, thread here") :threads 2 :times 4) ;; prints to standard out
-
-;(.shutdown *pool*)
 
 (defn neighbors
   ([size yx] (neighbors [[-1 0] [1 0] [0 -1] [0 1]] size yx))
@@ -53,7 +41,7 @@
 (defn place [from to] to)
 
 (defn move-piece [[piece dest] [[_ src] _]]
-  (alter (get-in board dest) place piece)
+  (alter (get-in board dest) place piece)  ;; calls to alter must be run in a transaction (see dosync below)
   (alter (get-in board src ) place :-)
   (alter num-moves inc))
 
@@ -61,7 +49,7 @@
   (alter to-move #(vector (second %) move)))
 
 (defn make-move []
-  (dosync
+  (dosync ;; starts a transaction (the "alter" calls above must be run in a transaction)
    (let [move (choose-move @to-move)]
      (move-piece move @to-move)
      (update-to-move move))))
@@ -91,6 +79,14 @@
 ;@num-moves
 ;=> 10001
 
+(defn bad-make-move []
+  (let [move (choose-move @to-move)]
+    (dosync (move-piece move @to-move))
+    (dosync (update-to-move move))))
+
+(go bad-make-move 100 100)
+
+(board-map #(dosync (deref %)) board)
 
 
 
