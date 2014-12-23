@@ -10,8 +10,9 @@
   (dotimes [t thread-count]
     (.submit *pool* #(dotimes [_ exec-count] (f)))))
 
-(dothreads! (fn [] (println "yay oh yay")) :threads 5 :times 3)
+(dothreads! (fn [] (println "yay")) :threads 5 :times 3)
 
+(.shutdown *pool*)
 
 
 
