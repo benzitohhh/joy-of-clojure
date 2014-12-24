@@ -1,3 +1,5 @@
+package joy;
+
 public class FluentMove {
     String from, to, promotion = "";
     boolean castlep;
