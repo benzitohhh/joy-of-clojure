@@ -18,6 +18,8 @@
    `(let [~@(mapcat (fn [[k v]] [k `'~v]) ctx)]
       ~expr)))
 
+(contextual-eval {'a 2, 'b (* 2 6)} '(+ a b))
+
 (defmacro unless [condition & body]
   `(if (not ~condition)
      (do ~@body)))

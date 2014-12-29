@@ -1,7 +1,6 @@
 (ns joy.debug
   (:require [clojure.xml :as xml]))
 
-
 (defn traverse [node f]
   (when node
     (f node)
@@ -54,3 +53,4 @@
 
 (binding [handle-weird-animal handle-weird]
   (traverse DB visit))
+
